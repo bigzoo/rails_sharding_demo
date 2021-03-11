@@ -7,16 +7,20 @@ default: &default
 
 development:
   primary:
+    adapter: postgresql
     <<: *default
     database: todo_database
   primary_replica:
+    adapter: postgresql
     database: todo_database
     replica: true
   primary_shard_one:
     <<: *default
+    adapter: postgresql
     database: todo_shard_one
   primary_shard_one_replica:
     <<: *default
+    adapter: postgresql
     database: todo_shard_one
     replica: true
 
