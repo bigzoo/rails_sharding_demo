@@ -14,17 +14,21 @@ Let's make a bunch of databases. Update your database.yml like so (much of what 
 ```ruby
 development:
   primary:
+    adapter: postgresql
     <<: *default
-    database: my_primary_database
+    database: todo_database
   primary_replica:
-    database: my_primary_database
+    adapter: postgresql
+    database: todo_database
     replica: true
   primary_shard_one:
     <<: *default
-    database: my_primary_shard_one
+    adapter: postgresql
+    database: todo_shard_one
   primary_shard_one_replica:
     <<: *default
-    database: my_primary_shard_one
+    adapter: postgresql
+    database: todo_shard_one
     replica: true
 ```
 You can use whatever database or adapter you want. I normally hook up Postgres, today playing around with SQLite3. 
